@@ -1,0 +1,12 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Images social network",
+  "main": "app.js",
+  "repository": "https://github.com/h4rr21/devF_batch3",
+  "author": "h4rry",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
