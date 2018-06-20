@@ -36,11 +36,11 @@ route.put('/:id', (req, res, next) => {
 	const data = req.body;
 	const id = req.params.id;
 
-	models.Images.findById(id).then(images) => {
+	models.Images.findById(id).then((images) => {
 		image.update(data).then((image)  =>{
 			res.send(image);
 		})
-	}
+	})
 })
 
 // router.delete('/:pos', (req, res, next) => {

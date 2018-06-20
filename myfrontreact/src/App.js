@@ -39,12 +39,9 @@ class App extends Component {
     return (
       <div className="App">
           <input onChange= {(evt) => { this.state.inputValue=evt.target.value }} />
-          <button onClick={this.handleClickOne} >Cambiar 1</button>
-          <MyFirstComponent  text={this.state.firstBox}/>
-          <button onClick={this.handleClickTwo} >Cambiar 2</button>
-          <MyFirstComponent  text={this.state.secondBox}/>
-          <button onClick={this.handleClickThree} >Cambiar 3</button>
-          <MyFirstComponent  text={this.state.thirdBOx}/>
+          <MyFirstComponent  text={this.state.firstBox} handler={this.handleClickOne} buttonText="boton1" />
+          <MyFirstComponent  text={this.state.secondBox} handler={this.handleClickTwo} buttonText="boton2" />
+          <MyFirstComponent  text={this.state.thirdBOx} handler={this.handleClickThree} buttonText="boton3" />
       </div>
     );
   }

@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 class MyFirstComponent extends Component{
 	render(){
 		return(
-			<p> {this.props.text} </p>
+			<div>
+				<p> {this.props.text} </p>
+				<button onClick={this.props.handler}> {this.props.buttonText} </button>
+			</div>
 		)
 	}
 }
