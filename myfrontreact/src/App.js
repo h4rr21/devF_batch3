@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import MyFirstComponent from './components/myfirstcomponent';
+import Grid from '@material-ui/core/Grid';
 
 class App extends Component {
 
@@ -39,9 +40,17 @@ class App extends Component {
     return (
       <div className="App">
           <input onChange= {(evt) => { this.state.inputValue=evt.target.value }} />
-          <MyFirstComponent  text={this.state.firstBox} handler={this.handleClickOne} buttonText="boton1" />
-          <MyFirstComponent  text={this.state.secondBox} handler={this.handleClickTwo} buttonText="boton2" />
-          <MyFirstComponent  text={this.state.thirdBOx} handler={this.handleClickThree} buttonText="boton3" />
+          <Grid container spacing={16}>
+            <Grid item xs={3}>
+              <MyFirstComponent  text={this.state.firstBox} handler={this.handleClickOne} buttonText="boton1" />
+            </Grid> 
+            <Grid item xs={3}>
+              <MyFirstComponent  text={this.state.secondBox} handler={this.handleClickTwo} buttonText="boton2" />
+              </Grid>
+            <Grid item xs={3}>  
+              <MyFirstComponent  text={this.state.thirdBOx} handler={this.handleClickThree} buttonText="boton3" />
+            </Grid>
+          </Grid>
       </div>
     );
   }
