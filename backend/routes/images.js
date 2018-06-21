@@ -7,9 +7,9 @@ router.use(bodyParser.json());
 
 // {
 // 	id:1,
-// 	url:'www.google.com/imagen',
-// 	desc: 'la imagen original',
-// 	nombre: 'primeraImagen'
+// 	"url":"www.google.com/imagen",
+// 	"desc": "la imagen original",
+// 	"nombre": "primeraImagen"
 // }
 
 router.get('/', (req, res, next) => {
@@ -26,13 +26,13 @@ router.post('/', (req, res, next) => {
 })
 
 router.get('/:id', (req, res, next) => {
-	const posicion = req.params.id;
+	const id = req.params.id;
 	models.Images.findById(id).then((image)=>{
 		res.send(image);
 	});
 })
 
-route.put('/:id', (req, res, next) => {
+router.put('/:id', (req, res, next) => {
 	const data = req.body;
 	const id = req.params.id;
 
