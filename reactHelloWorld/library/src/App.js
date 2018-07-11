@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 
 import AppBar from "./components/appBar";
 import Card from "./components/cards";
@@ -13,7 +14,19 @@ class App extends Component {
 
 state = {
   filtro:"",
+  libros:[]
 }
+
+  componentDidMount(){
+    axios.get(`http://localhost:4000/book`)
+    .then( resp=>{
+      var libros = resp.data;
+      this.setState({libros:libros})
+      
+    }).catch( error=>{
+      console.log("el error es: ",error)
+    });
+  }
 
   filter = (event) =>{
       // if (event.target.value){
@@ -23,34 +36,8 @@ state = {
   };
 
   render() {
-
-    const libros = [{
-      id: 1,
-      tittle: "Librillo",
-      desc: "the best book butos",
-      image: imageLibrillo
-    },
-    {
-      id: 2,
-      tittle: "Mago de Oz",
-      desc: "y sus aventuras butas",
-      image: imageMagodeOz
-    },
-    {
-      id: 3,
-      tittle: "Principito",
-      desc: "y sus aventuras butas",
-      image: imagePrincipito
-    },
-    {
-      id: 4,
-      tittle: "Free Willy ",
-      desc: "y sus aventuras butas",
-      image: imageFreeWilly
-    },
-  ];
   
-    const librosFiltrados = libros.filter(libro => {
+    const librosFiltrados = this.state.libros.filter(libro => {
       if(this.state.filtro == 0){
         return true;
       }else if (libro.tittle.toLowerCase().indexOf(this.state.filtro.toLowerCase()) >= 0){
@@ -69,7 +56,7 @@ state = {
           {librosFiltrados.map(libro =>{
             return ( 
                     <Card 
-                      key={libro.id}
+                      key={libro._id}
                       tittle={libro.tittle}
                       desc={libro.desc}
                       image={libro.image}
