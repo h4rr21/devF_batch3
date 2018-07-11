@@ -38,7 +38,7 @@ state = {
   render() {
   
     const librosFiltrados = this.state.libros.filter(libro => {
-      if(this.state.filtro == 0){
+      if(this.state.filtro === 0){
         return true;
       }else if (libro.tittle.toLowerCase().indexOf(this.state.filtro.toLowerCase()) >= 0){
         return true;
@@ -57,6 +57,8 @@ state = {
             return ( 
                     <Card 
                       key={libro._id}
+                      history={this.props.history}
+                      id={libro._id}
                       tittle={libro.tittle}
                       desc={libro.desc}
                       image={libro.image}
